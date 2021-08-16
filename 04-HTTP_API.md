@@ -194,17 +194,16 @@ http api를 직접 설계해보자.
 ## HTTP API 설계 예시
 
 - **POST** 신규자원 등록 특징
-
   - ex) POST /members 
     - response: locaiton: members/100
-
+  
   - 클라이언트는 등록될 리소스의 URI를 모른다.
   - 서버가 새로 등록된 리소스URI를 생성해준다.
   - **컬렉션**
     - 서버가 관리하는 리소스 디렉토리
     - 서버가 리소소의 URI를 생성하고 관리
     - 여기서 컬렉션은 /members
-
+  
 - **PUT** 기반 등록
   - 클라이언트가 리소스의 URI를 알고있어야 한다.
   - 클라이언트가 직접 리소스의 URI를 지정한다.
@@ -213,4 +212,37 @@ http api를 직접 설계해보자.
     - 클라이언트가 리소의 URI를 알고 관리
 
 
+
+### HTML FORM 사용
+
+- GET, POST만 지원
+- 컨트롤 URI
+  - 동사로 된 리소스 경로 사용
+    -  /new, /edit, delete
+  - HTTP 메서드로 해결하기 애매한 경우 사용
+
+
+
+### 정리
+
+### 참고하면 좋은 URI 설계 개념
+
+- 문서
+  - 단일개념
+  - /members/100, /fiiles/start.jpg
+- 컬렉션
+  - 서버가 관리하는 리소스 디렉토리
+  - /memeber
+- 스토어
+  - 클라이언트가 관리하는 자원 저장소
+  - /files
+
+- 컨트롤러, 컨트롤 URI
+  - 문서, 컬렉션, 스토어로 해결하기 어려운 추가 프로세스 실행
+  - 동사를 직접 사용
+  - /members/{id}/delete
+
+
+
+참고 사이트 : [REST API Tutorial > REST Resource Naming Guide](https://restfulapi.net/resource-naming)
 
